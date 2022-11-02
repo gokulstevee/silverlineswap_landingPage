@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Wallets from "./Wallets";
 
 function Nav() {
+  const [wallet, setWallet] = useState(false);
+
+  function walletVisible() {
+    setWallet(!wallet);
+  }
+
   return (
     <div className="navbar">
       <div className="nav_img">
@@ -44,9 +51,27 @@ function Nav() {
           <a href="#">Blog</a>
         </li>
         <li>
-          <button>Connect</button>
+          {wallet ? (
+            <button
+              className="disconnect"
+              onClick={() => {
+                walletVisible();
+              }}
+            >
+              Disconnect
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                walletVisible();
+              }}
+            >
+              Connect
+            </button>
+          )}
         </li>
       </ul>
+      {wallet && <Wallets />}
     </div>
   );
 }
