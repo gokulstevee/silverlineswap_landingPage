@@ -6,8 +6,6 @@ import BgImg from "./components/BgImg";
 
 function App() {
 
-  // const[accAddress,setAccAddress] = useState(null)
-
   return (
     <div className="App">
       <BgImg />
