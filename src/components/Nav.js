@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Wallets from "./Wallets";
 
 function Nav() {
   const [cancel, setCancel] = useState(false);
   const [disconnect, setDisconnect] = useState(false);
+  const [address, setAddress] = useState(null);
 
   function walletVisible() {
     setCancel(!cancel);
@@ -16,6 +16,14 @@ function Nav() {
         .request({ method: "eth_requestAccounts" })
         .then((result) => {
           if (result) {
+            let arrayAddress = result[0].split("");
+            let stringAddress = "";
+            let shortAddress;
+            for (let i = 0; i <= 6; i++) {
+              stringAddress = stringAddress + arrayAddress[i];
+            }
+            shortAddress = stringAddress + "...";
+            setAddress(shortAddress);
             setCancel(false);
             setDisconnect(true);
           }
@@ -74,7 +82,7 @@ function Nav() {
                   walletVisible();
                 }}
               >
-                Disconnect
+                {address}
               </button>
             ) : (
               <button
