@@ -201,7 +201,14 @@ ul {
 }
 ::placeholder {
   font-family: "Poppins", sans-serif;
-  padding-left: 15px;
+  /* padding-left: 10px; */
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.pre-sale_container input[type="number"] {
+  font-family: "Poppins", sans-serif;
+  /* padding-left: 10px; */
   font-size: 16px;
   font-weight: 700;
 }
@@ -212,13 +219,12 @@ ul {
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  margin: 0.6em 0 0 -4.9em;
+  margin: 0.6em 0 0 -6em;
   background-color: #d9a9ff;
   border-radius: 90px;
   padding: 0.2em 0.3em 0.2em 0.3em;
   width: 4em;
   border: none;
-  display: inline;
   border-color: #d9a9ff;
 }
 
